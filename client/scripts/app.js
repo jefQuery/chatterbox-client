@@ -36,7 +36,7 @@ var app = {
     $('#chats').children().remove();
   },
   renderMessage: (message) => {
-    let $newMessage = $('<div class="chat"></div>').text(message.text);
+    let $newMessage = $('<div class="chat"></div>').text(message.text); //make sure to set most recent message with an id of "message"
     $newMessage.prepend('<span class="username"></span>').text(message.username);
     $('#chats').prepend($newMessage);//add class of roomname to hide later
   },
@@ -49,16 +49,28 @@ var app = {
     $('.username').on('click', () => {
       return true;
     });
+  },
+  handleSubmit: () => {
+    () => {
+      return true;
+    };
   }
 };
 
 $(document).ready(function() {
+  var urlToParse = window.location.search;
+  if (_.contains(urlToParse, '&')) {
+    var username = valuesIDArray[1].split('=')[1].split('%20').join(' ');
+  }
   $('.chatButton').on('click', (event) => {
-    var message = $('#chatInputText').text();
-    // var message = $('.chatInputText').val(); 
-    console.log(message);
-    // Add username and roomname? turn to JSON
-    // app.send(message);
-    // app.renderMessage(message);
+    var message = $('#send').val();
+    var roomname = $('#roomSelect > .selected').val();
+    var jSONMessage = {
+      username: username,  
+      text: message,
+      roomname: roomname,
+    };
+    app.send(jSONMessage);
+    app.renderMessage(jSONMessage);
   });
 });
