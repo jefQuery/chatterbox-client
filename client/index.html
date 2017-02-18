@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="styles/styles.css">
 
     <!-- dependencies -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>    
+    <script src="bower_components/underscore/underscore.js"></script>    
+    <script src="bower_components/backbone/backbone.js"></script>    
     <script>
       // YOU DO NOT NEED TO EDIT THIS CODE
       if (!/(&|\?)username=/.test(window.location.search)) {
@@ -26,7 +28,24 @@
     <div id="main">
       <h1>chatterbox</h1>
       <!-- Your HTML goes here! -->
+      
+      <div class="roomSelectorTitle">Select from existing rooms:</div>
+      <!--add a "Create Room" option later -->
+      <select id="roomSelect" name="rooms" form="roomSelector">
+        <option class="Lobby">Lobby</option>
+        <!--populate the different rooms -->
+      </select>
+
+      <!-- <form> -->
+        <input id="chatInputText" type="text" name="textbox" placeholder="what's good?"> 
+        <!-- pattern="/[^a-zA-Z0-9!.,'?@#s\]/g" -->
+        <input class="chatButton" type="submit" name="submit">
+      <!-- </form> -->
     </div>
-    <div id="chats"></div>
+
+    <div id="chats">
+      <!-- this is where the chatter goes, prepend into here -->
+    </div>
+
   </body>
 </html>
