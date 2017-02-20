@@ -28,23 +28,26 @@
     <div id="main">
       <h1>chatterbox</h1>
       <!-- Your HTML goes here! -->
-      
+      <div class='spinner'><img src="images/spiffygif_46x46.gif"></div>
       <div class="roomSelectorTitle">Select from existing rooms:</div>
       <!--add a "Create Room" option later -->
       <select id="roomSelect" name="rooms" form="roomSelector">
-        <option class="Lobby selected" data='Lobby'>Lobby</option>
+        <option class="roomname" data='newRoom'>Add New Room</option>
         <!--populate the different rooms -->
       </select>
 
-      <!-- <form> -->
-      <!-- </form> -->
+
+      <form>
+        <input id="send" type="text" name="textbox" placeholder="what's good?"> 
+        <button class="chatButton" type="submit">submit</button>
+      </form>
 
     <div id="chats">
       <!-- this is where the chatter goes, prepend into here -->
     </div>
-    <input id="send" type="text" name="textbox" placeholder="what's good?"> 
-        
-    <button class="chatButton" type="submit">submit</button>
 
+    <script>
+      $(() => app.init());
+    </script>
   </body>
 </html>
